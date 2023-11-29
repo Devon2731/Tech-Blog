@@ -1,0 +1,240 @@
+:root {
+    --primary: #389393;
+    --secondary: #f5a25d;
+    --tertiary: #fa7f72;
+    --quatrinary: #6c6b67;
+    --light: #ebebeb;
+    --dark: #182c23;
+    --error: rgb(228, 46, 1);
+    --border-radius: 0.3rem;
+  }
+  
+  /* Styling body */
+  body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: var(--quatrinary);
+  }
+  
+  /* Styling header */
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    text-align: left;
+    background: var(--primary);
+    color: var(--secondary);
+    border-bottom-style: solid;
+  }
+  
+  h1 {
+    padding: 2rem;
+    size: 25rem;
+    font-style: italic;
+    text-shadow: 4px 4px grey;
+    color: var(--secondary);
+  }
+  
+  h2 {
+    padding: 1.25rem;
+    size: 25rem;
+    color: var(--secondary);
+    margin-left: -3%;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  
+  /* Styling nav bar */
+  nav {
+    margin-left: -1%;
+    margin-top: -1%;
+    display: flex;
+    text-decoration: none;
+    color:var(--secondary);
+  }
+  
+  .nav-a {
+    color:var(--secondary);
+    font-size: 1.5rem;
+  }
+  
+  .no-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 1.5rem;
+    color:var(--secondary);
+  }
+  
+  
+  /* LAYOUT */
+  .container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+  }
+  
+  
+  /* Blog CARDS */
+  .post-card {
+    margin: 20px;
+    flex: 0 1 75px;
+    padding: 5px;
+    width: 100%;
+    height: fit-content;
+    min-height: fit-content;
+    min-width: fit-content;
+    border: 3px solid var(--primary);
+    border-radius: var(--border-radius);
+    border-style: solid;
+    border-width: medium;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  .post-card-header {
+    font-size: 1.5rem;
+    color: var(--tertiary);
+    margin: 0;
+    background-color: var(--light);
+    padding: 0.625rem;
+    border-bottom-style: solid;
+  }
+  
+  .title-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content :space-between;
+  }
+  
+  
+  
+  .card-body {
+    padding: 2.5%;
+    font-size: 1.4rem;
+    text-align: left;
+    height: fit-content;
+  }
+  
+  .post-card-anchor {
+    text-decoration: none;
+    color: initial;
+  }
+  
+  .post-card-anchor:hover {
+    text-decoration: none;
+  }
+  
+  
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+  
+    text-decoration: none;
+    color: initial;
+  }
+  
+  
+  hr.solid {
+    border: 3px solid  var(--primary);
+  }
+  
+  .post_creator {
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+  
+  
+  /* Styling forms */
+  
+  .blog-post,
+  .login-form,
+  .signup-form
+  {
+    border: 3px solid var(--primary);
+    border-radius: var(--border-radius);
+    border-style: solid;
+    border-width: medium;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  .form-group {
+    margin: 8px 0px;
+  }
+  
+  .textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 6px;
+    background-color: white;
+  }
+  
+  
+  /* Styling buttons */
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .pst-btn {
+    background-color:var(--primary);
+    color:var(--tertiary);
+    text-align: center;
+    width: 12em;  
+    height: 2em;
+    font-size: 1.25rem;
+    margin: 2%;
+  }
+  
+  .pst-btn:hover {
+    background-color:var(--primary);
+    text-decoration: none;
+    color: var(--secondary);
+    text-shadow: 2px 2px gray;
+  }
+  
+  .new-post {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary);
+  }
+  
+  .new-post:hover {
+    background-color:var(--primary);
+    text-decoration: none;
+    color: var(--secondary);
+    text-shadow: 2px 2px gray;
+  }
+  
+  .sign-up {
+    margin-left: 2%;
+  }
+  

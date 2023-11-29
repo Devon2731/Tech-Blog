@@ -5,7 +5,6 @@ class Post extends Model {}
 
 Post.init(
   {
-    // Define the columns of your 'Post' model
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,6 +31,11 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,
@@ -42,3 +46,4 @@ Post.init(
 );
 
 module.exports = Post;
+
