@@ -1,0 +1,26 @@
+{
+    "name": "Tech-Blog",
+    "version": "1.0.0",
+    "description": "It's a Tech Blog",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Devon2731/Tech-Blog"
+    },
+    "author": "Devon Whitaker",
+    "license": "ISC",
+    "dependencies": {
+        "@types/sequelize": "^4.28.14",
+        "bcrypt": "^5.0.1",
+        "connect-session-sequelize": "^7.1.5",
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1",
+        "express-session": "^1.17.3",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.21.3"
+    }
+}
