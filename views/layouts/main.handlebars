@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for character set and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Page title -->
+    <title>Tech Blog</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/post.css">
+</head>
+<body>
+    <!-- Main container -->
+    <div>
+        <!-- Header section with navigation -->
+        <header>
+            <nav class="display-flex justify-space-between align-left p-2">
+                <div>
+                    <!-- Navigation links -->
+                    <a href="/" class="mx-2 px-6 nav-a'">Home</a>
+                    <a href="/dashboard" class="mx-2 px-6 nav-a">Dashboard</a>
+                    
+                    <!-- Conditional rendering for login and logout links -->
+                    {{#if logged_in}}
+                        <a href="/logout" class="mx-2 px-6 nav-a">Logout</a>
+                    {{else}}
+                        <a href="/login" class="mx-2 px-6 nav-a">Login</a>
+                    {{/if}}
+                </div>
+            </nav>
+            <div class="align-left">
+                <!-- Conditional rendering for dashboard title or default blog title -->
+                {{#if isDashboard}}
+                    <h1>{{username}}'s Dashboard</h1>
+                {{else}}
+                    <h1>Tech Blog</h1>
+                {{/if}}
+            </div>
+        </header>
+
+        <!-- Main content area -->
+        <main class="container container-fluid mt-5">
+            {{{body}}} <!-- Dynamic content -->
+        </main>
+
+        <!-- Footer section (currently empty) -->
+        <footer>
+            
+        </footer>
+    </div>
+
+    <!-- Render script for logged-in user (if applicable) -->
+    {{#if logged_in}}
+        <script src="../public/js/logout.js"></script>
+    {{/if}}
+    
+</body>
+</html>

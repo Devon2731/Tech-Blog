@@ -1,0 +1,23 @@
+<div class="row cols-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+    <h2>Post Your Blog</h2>
+
+    <form class="form post-form">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input class="form-input" type="text" id="post-title-input" value="{{post.title}}"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-input" id="post-details-input" name="description" required>{{post.description}}</textarea>
+        </div>
+        <div class="form-group row btn-group ">
+            <button class="btn pst-bnt blg-btn blg-update" type="submit">Update</button>
+            <button class="btn pst-bnt blg-btn blg-delete" type="submit">Delete</button>
+        </div>
+    </form>
+</div>
+
+</div>
+
+<script src="../public/js/post.js"></script>

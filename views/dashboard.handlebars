@@ -1,0 +1,22 @@
+<!-- Loop over objects in the posts array -->
+{{#each posts as |post| }}
+<div class="post-card">
+    <a class="post-card-archor" href="/post/{{post._id}}">
+        <!-- Post card header section -->
+        <div class="postq-card-header title-header">
+            <div>{{post.title}}</div> <!-- Display post title -->
+            <div class="post_creator"> Posted by {{post.creator.username}} {{format_date post.date_created}}</div>
+            <!-- Display post creator's username and creation date -->
+        </div>
+        <!-- Post card body section -->
+        <div class="post-card-body">
+            <p>{{post.description}}</p> <!-- Display post description -->
+        </div>
+    </a>
+</div>
+{{/each}}
+
+<!-- Button to add a new post -->
+<div>
+    <button class="btn pst-bntn"><a href="/post/new">Add Post</a></button>
+</div>

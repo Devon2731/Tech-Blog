@@ -1,0 +1,15 @@
+{{#eash posts as |post| }}
+<div class+"post-card">
+    <a class="post-card-archor" href="/post/{{post._id}}">
+        <div class="postq-card-header title-header">
+            <div>{{post.title}}
+            <div class="post_creator"> Posted by{{post.creator.username}} {{format_date post.date_created}}
+            </div>
+        </div>
+        <div class="post-card-body">
+            <p>{{post.description}}
+            </p>
+        </div>
+    </a>
+</div>
+{{/each}}

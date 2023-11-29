@@ -1,0 +1,29 @@
+<div class="row cols-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Postr Your Blog</h2>
+
+        <!-- Blog post form -->
+        <form class="form post-form">
+            <!-- Title input -->
+            <div class="form-group">
+                <label for="post-title">Title:</label>
+                <input class="form-input" type="text" id="post-title-input"/>
+            </div>
+
+            <!-- Description textarea -->
+            <div class="form-group">
+                <label for="post-details">Description:</label>
+                <textarea class="form-input form-description" id="post-details-input" type="text" required></textarea>
+                <p> <span></span></p>
+            </div>
+
+            <!-- Button group with the "Post" button -->
+            <div class="form-group button-group">
+                <button class="btn btn-primary" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Include the script for handling the form in a separate JavaScript file -->
+<script src="../public/js/postform.js"></script>
