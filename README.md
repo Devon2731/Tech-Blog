@@ -1,17 +1,5 @@
 # Tech-Blog
 
-A simple blogging platform for sharing and discussing technology-related topics.
-
-## Table of Contents
-
-- [Description](#description)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Description
 
 The Tech Blog is a web application that allows users to create, view, and comment on blog posts related to technology. Users can register for an account, create new posts, comment on existing posts, and interact with a community of tech enthusiasts.
@@ -47,4 +35,19 @@ MIT License
 - Click on a post to view details and comments.
 - Create your own blog posts from the dashboard.
 - Leave comments on posts to engage with the community.
+
+## Screenshots 
+
+<img width="1440" alt="Screenshot 2023-11-30 at 11 26 43 PM (2)" src="https://github.com/Devon2731/Tech-Blog/assets/141438012/039e628e-a9bd-459a-b7ec-0f9ebcee7364">
+
+
+![Screenshot 2023-11-30 at 11 28 02 PM](https://github.com/Devon2731/Tech-Blog/assets/141438012/82c4ad34-37df-4293-b518-c08cba579ad7)
+
+![Screenshot 2023-11-30 at 11 28 25 PM](https://github.com/Devon2731/Tech-Blog/assets/141438012/710495ae-c168-4423-927c-6c00dce0ac34)
+
+
+## Deployment
+
+GH: https://github.com/Devon2731/Tech-Blog
+
 
