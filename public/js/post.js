@@ -1,7 +1,7 @@
 const commentPostHandler = async (event) => {
     event.preventDefault();
   
-    const description = document.querySelector('#comment-details-input').value.trim();
+    const description = document.querySelector('#comment-details-keyed').value.trim();
     var currentUrl = window.location.pathname;
     console.log(currentUrl);
   
@@ -33,5 +33,5 @@ const commentPostHandler = async (event) => {
     }
   };
   
-  document.querySelector('.comment-post').addEventListener('submit', commentPostHandler);
+  document.querySelector('.comment-form').addEventListener('submit', commentPostHandler);
   

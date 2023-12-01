@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <!-- Metadata for character set and responsive design -->
@@ -10,8 +11,8 @@
     <title>Tech Blog</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="../../public/css/jass.css">
+    <link rel="stylesheet" href="/public/css/jass.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
     <!-- Main container -->
@@ -21,7 +22,7 @@
             <nav class="display-flex justify-space-between align-left p-2">
                 <div>
                     <!-- Navigation links -->
-                    <a href="/" class="mx-2 px-6 nav-a'">Home</a>
+                    <a href="/" class="mx-2 px-6 nav-a">Home</a>
                     <a href="/dashboard" class="mx-2 px-6 nav-a">Dashboard</a>
                     
                     <!-- Conditional rendering for login and logout links -->
@@ -55,7 +56,7 @@
 
     <!-- Render script for logged-in user (if applicable) -->
     {{#if logged_in}}
-        <script src="../../public/js/logout.js"></script>
+        <script src="/public/js/logout.js"></script>
     {{/if}}
     
 </body>

@@ -1,13 +1,14 @@
 :root {
-    --primary: #389393;
-    --secondary: #f5a25d;
-    --tertiary: #fa7f72;
-    --quatrinary: #6c6b67;
-    --light: #ebebeb;
-    --dark: #182c23;
-    --error: rgb(228, 46, 1);
-    --border-radius: 0.3rem;
-  }
+  --primary: black;
+  --secondary: #f5a25d;
+  --tertiary: black;
+  --quatrinary: #6c6b67;
+  --light: #ebebeb;
+  --dark: #182c23;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+}
+
   
   /* Styling body */
   body {
@@ -33,18 +34,18 @@
   
   h1 {
     padding: 2rem;
-    size: 25rem;
+    font-size: 2.5rem;
     font-style: italic;
     text-shadow: 4px 4px grey;
     color: var(--secondary);
-  }
+}
   
-  h2 {
-    padding: 1.25rem;
-    size: 25rem;
-    color: var(--secondary);
-    margin-left: -3%;
-  }
+hh2 {
+  padding: 1.25rem;
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-left: -3%;
+}
   
   main {
     display: flex;
@@ -131,11 +132,11 @@
   .post-card-anchor {
     text-decoration: none;
     color: initial;
-  }
+}
   
-  .post-card-anchor:hover {
-    text-decoration: none;
-  }
+.post-card-archor:hover {
+  text-decoration: none;
+}
   
   
   a.button {
@@ -160,7 +161,7 @@
   
   /* Styling forms */
   
-  .blog-post,
+  .post-form,
   .login-form,
   .signup-form
   {

@@ -2,39 +2,14 @@ const router = require('express').Router();
 const { Post, Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Route to get all posts
-router.get('/posts', async (_req, res) => {
-  try {
-    const posts = await Post.findAll();
-    res.json(posts);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to retrieve posts' });
-  }
-});
-
-// Route to get a specific post by ID
-router.get('/posts/:id', async (req, res) => {
-  try {
-    const post = await Post.findByPk(req.params.id);
-    if (!post) {
-      res.status(404).json({ error: 'Post not found' });
-      return;
-    }
-    res.json(post);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to retrieve the post' });
-  }
-});
 
 // Route to create a new post (requires authentication)
-router.post('/posts', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       title: req.body.title,
-      content: req.body.content,
-      user_id: req.session.user_id, // Assuming you store user_id in the session
+      content: req.body.description,
+      user_id: req.session.user_id, 
     });
     res.json(newPost);
   } catch (err) {
@@ -44,12 +19,12 @@ router.post('/posts', withAuth, async (req, res) => {
 });
 
 // Route to update a post (requires authentication)
-router.put('/posts/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedPost = await Post.update(
       {
         title: req.body.title,
-        content: req.body.content,
+        content: req.body.description,
       },
       {
         where: {
@@ -70,7 +45,7 @@ router.put('/posts/:id', withAuth, async (req, res) => {
 });
 
 // Route to delete a post (requires authentication)
-router.delete('/posts/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const deletedPost = await Post.destroy({
       where: {
@@ -90,7 +65,7 @@ router.delete('/posts/:id', withAuth, async (req, res) => {
 });
 
 // Route to create a new comment (requires authentication)  
-router.post('/comments', withAuth, async (req, res) => {
+router.post('/:id/comments', withAuth, async (req, res) => {
     try {
         if (req.body.description) {
             const commentInput = {

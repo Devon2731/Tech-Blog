@@ -1,77 +1,75 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Route to create a new user
-router.post('/users', async (req, res) => {
+// Create new user
+router.post('/', async (req, res) => {
   try {
-    const newUser = await User.create({
+    const dbUserData = await User.create({
       username: req.body.username,
-      password: req.body.password, // Remember to hash passwords before storing in a production environment
+      email: req.body.email,
+      password: req.body.password,
     });
-    res.json(newUser);
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.userID = dbUserData.id; 
+
+      res.status(200).json(dbUserData);
+    });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to create the user' });
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
-// Route to log in (check credentials)
+//  Router Post Login
 router.post('/login', async (req, res) => {
   try {
-    const user = await User.findOne({
+    const dbUserData = await User.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
     });
 
-    if (!user || !user.checkPassword(req.body.password)) {
-      res.status(401).json({ error: 'Incorrect username or password' });
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Sorry, incorrect email or password. Please try again!' });
       return;
     }
 
-    // Set up session for the logged-in user
-    req.session.user_id = user.id;
+    const validPassword = await dbUserData.checkPassword(req.body.password);
 
-    res.json({ message: 'Login successful', user });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to log in' });
-  }
-});
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: ' Sorry, incorrect email or password. Please try again!' });
+      return;
+    }
 
-// Route to get user data (requires authentication)
-router.get('/users/:id', (req, res) => {
-  // Ensure the request is made by an authenticated user
-  if (!req.session.user_id) {
-    res.status(401).json({ error: 'Unauthorized' });
-    return;
-  }
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.userID = dbUserData.id; 
 
-  // Fetch user data based on the user_id stored in the session
-  User.findByPk(req.session.user_id)
-    .then((user) => {
-      if (!user) {
-        res.status(404).json({ error: 'User not found' });
-        return;
-      }
-      res.json(user);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: 'Failed to retrieve user data' });
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'Yaaay! You are now logged in!' });
     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
-// Route to log out (destroy session)
+// Router Post Logout
 router.post('/logout', (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Failed to log out' });
-      return;
-    }
-    res.json({ message: 'Logout successful' });
-  });
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

@@ -1,49 +1,47 @@
 <div class="post-card">
-    <div class="post-card-header" title-header>
-        <div> {{post.title}}</div>
-        <div class="post_creator"> {{post.creator.username}} {{format_date post.date_created}}</div>
+    <div class="post-card-header title-header">
+        <div>{{post.title}}</div>
+        <div class="post_creator">{{post.user.name}} {{format_date post.date_created}}</div>
     </div>
     <div class="post-card-body">
-        <p>
-            {{post.description}}
-
-        </p>
+        <p>{{post.description}}</p>
     </div>
 </div>
 
-{{#if post.comment.length}}
+{{#if post.comments.length}}
 <div>
     <h2>Comments</h2>
     <hr class="solid">
 </div>
 {{/if}}
 
-{{#if post.comment.length}}
-{{#each post.comment}}
+{{#if post.comments.length}}
+{{#each post.comments as |comment|}}
 <div class="post-card">
     <div class="card-body">
         <p>{{comment.comment}}</p>
-        <p>{{comment.creator.username}} {{format_date comment.date_created}}</p>
+        <p>{{comment.user.name}} {{format_date comment.date_created}}</p>
     </div>
 </div>
 {{/each}}
 {{/if}}
 
-{{#if post.comment.length}}
+{{#if post.comments.length}}
 <div>
     <h2>Add Comment</h2>
     <hr class="solid">
 </div>
 {{/if}}
 
-<form class=" form comment-form">
+<form class="form comment-form" id="comment-form" autocomplete="off">
     <div class="form-group">
-        <label for="comment-title"> </label>
-        <textarea class="form-input" id="comment-details-input" name="comment" required></textarea>
+        <div class="comment-title">
+            <input class="form-input" id="comment-details-keyed" placeholder="Your Comment"/>
+        </div>
     </div>
     <div class="form-group">
         <button class="btn btn-primary" type="submit">Post Comment</button>
     </div>
 </form>
 
-<script src="../public/js/post.js"></script>
+<script src="/public/js/post.js"></script>

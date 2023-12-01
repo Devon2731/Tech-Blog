@@ -15,9 +15,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    content: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
+      defaultValue: '',
     },
     user_id: {
       type: DataTypes.INTEGER,
