@@ -4,7 +4,7 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-// const userRoutes = require("./controllers/api/user-routes");
+const userRoutes = require("./controllers/api/user-routes");
 const helpers = require("./utils/helper"); 
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -41,7 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-// app.use('/api/users', userRoutes); // Mount userRoutes
+app.use('/api/users', userRoutes); // Mount userRoutes
 
 app.use(routes);
 
