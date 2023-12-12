@@ -33,5 +33,7 @@ const commentPostHandler = async (event) => {
     }
   };
   
-  document.querySelector('.comment-form').addEventListener('submit', commentPostHandler);
+  document
+  .querySelector('.comment-form')
+  .addEventListener('submit', commentPostHandler);
   
